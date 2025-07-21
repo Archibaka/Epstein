@@ -39,7 +39,7 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="### Files, functionality and usage">Usage</a></li>
+    <li><a href="#usage">Files, functionality and usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
@@ -104,7 +104,7 @@ Install all dependencies from file
 
   You might need to use proxy or vpn to successfully clone these in certain countries
 
-## Files, functionality and usage
+## Files, functionality and usage <a id="usage"></a>
 
 Every module could be lauched by itself using
 ```
