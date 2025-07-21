@@ -103,6 +103,8 @@ Install all dependencies from file
   git clone https://huggingface.co/Qwen/Qwen3-1.7B /models/Jeffry/qwen3
   ```
 
+  You might need to use proxy or vpn to successfully clone these in certain countries
+
 ## Files, functionality and usage
 
 Every module could be lauched by itself using
