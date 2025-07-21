@@ -257,6 +257,8 @@ to configure this, please consult <a href="#Show him its place">this</a>
 
 in the separate window unless don't want to discuss content from the database with your RAG system
 
+###conv.py <a href=https://stackoverflow.com/questions/78010107/how-to-translate-symbols-from-latin-to-cyrillic> changes keyboard layout </a> 
+
 <!-- ROADMAP -->
 ## Roadmap
 
