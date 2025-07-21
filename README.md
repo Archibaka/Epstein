@@ -82,9 +82,25 @@ Install all dependencies from file
   ```
 
 ### Installation
-
+  Clone the repository by
   ```
-  Not needed
+  git clone https://github.com/Archibaka/Epstein.git
+  ```
+  Create the folder models, inside of it create two folders:
+  embmodel for ru-en-RoSBERTa
+  and 
+  Jeffry for Qwen3
+  
+  in models/embmodel run
+  ```
+  git lfs install
+  git clone https://huggingface.co/ai-forever/ru-en-RoSBERTa
+  ```
+
+  
+  in models/Jeffry run
+  ```
+  git clone https://huggingface.co/Qwen/Qwen3-1.7B
   ```
 
 ## Files, functionality and usage
