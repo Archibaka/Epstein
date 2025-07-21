@@ -40,6 +40,16 @@
       </ul>
     </li>
     <li><a href="#usage">Files, functionality and usage</a></li>
+    <ul>
+        <li><a href="#Lilim">Lilim.py</a></li>
+        <li><a href="#occupy">Occu.py</a></li>
+             <ul><li><a href="#test">test.py</a></li>
+             </ul>
+      <li><a href="#Ser">Ser.py</a></li>
+<li><a href="#Main">main.py</a></li>
+      <li><a href="#Norm">toNormal.py</a></li>
+      <li><a href="#conv">conv.py</a></li>
+      </ul>   
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
@@ -238,7 +248,7 @@ To use simply run by itself
 python toNormal.py
 ``` 
 
-### main.py
+### main.py <a id="Main"></a>
 Chatbot window that ties everything.
 
 Uses all of the above
@@ -256,7 +266,7 @@ to configure this, please consult <a href="#Show him its place">this</a>
 
 in the separate window unless don't want to discuss content from the database with your RAG system
 
-### conv.py <a href=https://stackoverflow.com/questions/78010107/how-to-translate-symbols-from-latin-to-cyrillic> changes keyboard layout </a> 
+### conv.py <a id= "conv" href=https://stackoverflow.com/questions/78010107/how-to-translate-symbols-from-latin-to-cyrillic> changes keyboard layout </a> 
 
 <!-- ROADMAP -->
 ## Roadmap
