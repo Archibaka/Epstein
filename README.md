@@ -223,13 +223,13 @@ Uses <a href=https://github.com/ocrmypdf/OCRmyPDF>ocrmypdf</a>
 put your files in 
 
 ```
-outpath = "./files/GOOD"
+outpath = "./files/list"
 ```
 
 and get your ocred files from
 
 ```
-inpath = "./files/list"
+inpath = "./files/GOOD"
 ```
 
 or change the variables
