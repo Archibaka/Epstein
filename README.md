@@ -91,14 +91,14 @@ Install all dependencies from file
   and 
   Jeffry for Qwen3
   
-  in models/embmodel run
+  for ru-en-RoSBERTa  run
   ```
   git lfs install
   git clone https://huggingface.co/ai-forever/ru-en-RoSBERTa /models/embmodel/RoSBERTa
   ```
 
   
-  in models/Jeffry run
+  for Qwen3-1.7B run
   ```
   git clone https://huggingface.co/Qwen/Qwen3-1.7B /models/Jeffry/qwen3
   ```
