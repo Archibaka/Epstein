@@ -5,7 +5,6 @@
 <br />
 <div align="center">
   <a href="https://github.com/Archibaka/Epstein">
-    <img src="" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">Epstein</h3>
