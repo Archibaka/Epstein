@@ -91,14 +91,14 @@ Install all dependencies from file
   and 
   Jeffry for Qwen3
   
-  for ru-en-RoSBERTa  run
+  for <a href=https://huggingface.co/ai-forever/ru-en-RoSBERTa/tree/main> ru-en-RoSBERTa </a>  run
   ```
   git lfs install
   git clone https://huggingface.co/ai-forever/ru-en-RoSBERTa /models/embmodel/RoSBERTa
   ```
 
   
-  for Qwen3-1.7B run
+  for <a href=https://huggingface.co/Qwen/Qwen3-1.7B>QWEN3 1.7B</a> run
   ```
   git clone https://huggingface.co/Qwen/Qwen3-1.7B /models/Jeffry/qwen3
   ```
@@ -277,7 +277,7 @@ See the [open issues](https://github.com/Archibaka/Epstein/issues) for a full li
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
 If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
+Don't even bother to give the project a star! Thanks again!
 
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
