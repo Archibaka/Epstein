@@ -114,6 +114,8 @@ Install all dependencies from file
 
   You might need to use proxy or vpn to successfully clone these in certain countries
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## Files, functionality and usage <a id="usage"></a>
 
 Every module could be lauched by itself using
@@ -207,7 +209,9 @@ ret(data)
 #### Test.py <a id="test"></a>
   Another version of occu.py designed to take adventage of the better hardware 
   
-  by running max_worker number of llm agents
+  by running max_worker instances of llm agents
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Ser.py <a id="Ser"></a>
 Locally hosted <a href=https://huggingface.co/ai-forever/ru-en-RoSBERTa/tree/main> ru-en-RoSBERTa embedder </a> to satisfy dumbass stupid HuggingFaceAPIDocumentEmbedder from <a href="https://haystack.deepset.ai/">haystack</a> because apparently <a href="#Lilim">it's too difficult to load the model from the directory </a>
@@ -223,6 +227,7 @@ If you wish, you can change your host and port
 ```
 app.run(host=urhost, port=urport)
 ```
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### toNormal.py <a id="Norm"></a>
 Programm to ocr the pdfs 
@@ -247,6 +252,7 @@ To use simply run by itself
 ```
 python toNormal.py
 ``` 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### main.py <a id="Main"></a>
 Chatbot window that ties everything.
@@ -267,6 +273,8 @@ to configure this, please consult <a href="#Show him its place">this</a>
 in the separate window unless don't want to discuss content from the database with your RAG system
 
 ### conv.py <a id= "conv" href=https://stackoverflow.com/questions/78010107/how-to-translate-symbols-from-latin-to-cyrillic> changes keyboard layout </a> 
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ROADMAP -->
 ## Roadmap
