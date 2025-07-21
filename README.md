@@ -155,6 +155,8 @@ And Token Generator
                  exponential_decay_length_penalty=None, think=False, cache_implementation=None)
   ```
 
+3
+
 The parameters passed correspond with the ones described in <a href = "https://huggingface.co/docs/transformers/en/main_classes/text_generation"> This article </a>
 
 The context window could be manipulated by these class methods
@@ -164,6 +166,9 @@ add_to_history(self, role, content)
 ```
 clear_history(self)
 ```
+
+generate() is implemented via generateSt() call due to the author's limited IQ
+
 
 If launched by itself, runs an example:
 ```
