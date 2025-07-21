@@ -94,13 +94,13 @@ Install all dependencies from file
   in models/embmodel run
   ```
   git lfs install
-  git clone https://huggingface.co/ai-forever/ru-en-RoSBERTa
+  git clone https://huggingface.co/ai-forever/ru-en-RoSBERTa /models/embmodel/RoSBERTa
   ```
 
   
   in models/Jeffry run
   ```
-  git clone https://huggingface.co/Qwen/Qwen3-1.7B
+  git clone https://huggingface.co/Qwen/Qwen3-1.7B /models/Jeffry/qwen3
   ```
 
 ## Files, functionality and usage
