@@ -209,22 +209,23 @@ def stream_response():
     augmented_prompt = user_query  # По умолчанию
     if context_str and is_context_relevant(context_str):
         augmented_prompt = (f"The query is already rephrased. You are an assisatant now." 
-                            f"Based on the following context:\n{context_str}\n\nAnswer this question: {user_query} or {reformulated_query} DO NOT REPHRASE, ANSWER THE QUERY")
+                            f"Based on the following context:\n{context_str}\n\nAnswer this question: {user_query} (Reformulated: {reformulated_query}) DO NOT REPHRASE, ANSWER THE QUERY")
     print(augmented_prompt)
     def generate():
-        try:
+        with app.test_request_context():
+            try:
             # Create token stream
-            token_stream = llm.generateSt(
+                token_stream = llm.generateSt(
                 augmented_prompt,
                 max_new_tokens=4096,
                 temperature=0.7,
                 think=True
             )
-            start_time = time.time()
-            tokens = 0
-            # Stream tokens to client
-            for token in token_stream:
-                tokens += 1
+                start_time = time.time()
+                tokens = 0
+                # Stream tokens to client
+                for token in token_stream:
+                    tokens += 1
                 # Проверяем флаг остановки
                 # stop_requested = False
                 # if session_id:
@@ -240,22 +241,22 @@ def stream_response():
                 #             del stop_generation_flags[session_id]
                 #     break
                     
-                if token and token != "<think>" and token != "</think>":
-                    yield f"data: {token}\n\n"
+                    if token and token != "<think>" and token != "</think>":
+                        yield f"data: {token}\n\n"
             
-            gen_time = time.time() - start_time
-            status = f"Generated {tokens} tokens in {gen_time:.1f}s"
+                gen_time = time.time() - start_time
+                status = f"Generated {tokens} tokens in {gen_time:.1f}s"
 
-            session['last_status'] = status
-            session['is_processing'] = False
-            session.modified = True
+                session['last_status'] = status
+                session['is_processing'] = False
+                session.modified = True
 
-            # Send completion marker
-            yield "data: [DONE]\n\n"
+                # Send completion marker
+                yield "data: [DONE]\n\n"
             
-        except Exception as e:
-            yield f"data: Generation error: {str(e)}\n\n"
-            yield "data: [DONE]\n\n"
+            except Exception as e:
+                yield f"data: Generation error: {str(e)}\n\n"
+                yield "data: [DONE]\n\n"
     
     # Return streaming response
     return Response(generate(), mimetype="text/event-stream")
