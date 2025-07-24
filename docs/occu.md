@@ -41,6 +41,14 @@ from Occu import ind, ret
 ```python
 ind()
 ```
+или 
+
+###Запуск
+
+```bash
+python occu.py
+```
+
 Сформированная векторная база данных будет храниться в 
 ```python
 persist_path="./chroma_db"
