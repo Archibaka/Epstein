@@ -39,6 +39,8 @@ from Lilim import Lilim
 llm = Lilim("./models/Jeffry/qwen3")
 llm.load_model()
 ```
+Параметры:
+ass: Включать ли при загрузке модели пропт для ассистента в RAG системе
 
 # Генерация текста
 ```python
@@ -53,8 +55,9 @@ response = llm.generate(
 llm.add_to_history("user", "Новый запрос")
 llm.clear_history()
 ```
-# Параметры генерации
-max_new_tokens: Макс. количество новых токенов
+#  <a href="https://huggingface.co/docs/transformers/en/main_classes/text_generation"> Параметры генерации </a>
+
+max_new_tokens: Макс. количество новых токенов (0-32,768)
 
 temperature: Креативность (0-1)
 
@@ -63,3 +66,11 @@ top_p: Фильтрация ядра выборки
 top_k: Ограничение словаря
 
 sample: Включить стохастичность
+
+min_p: Минимальная вероятность
+
+exponential_decay_length_penalty: Экспоненциальный штраф на количество токенов (С какого токена начинается, величина степени)
+
+think: Наличие/отсутвие генерации токенов thinking, улучшающих качество вывода за счёт увеличения времени генерации 
+
+cache_implementation: Способы хранения контекста
