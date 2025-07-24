@@ -10,7 +10,7 @@
 ```
 pip install flask 
 ```
-Модули  <a href="https://github.com/Archibaka/Epstein/tree/main/docs/lilim.md">Lilim</a>, <a href="https://github.com/Archibaka/Epstein/tree/main/docs/occu.md">Occu</a>, <a href="https://github.com/Archibaka/Epstein/tree/main/docs/conv.md">conv</a>, <a href="https://github.com/Archibaka/Epstein/tree/main/docs/ser.md">Ser</a>
+Модули  <a href="https://github.com/Archibaka/Epstein/tree/main/docs/lilim.md">Lilim</a>, <a href="https://github.com/Archibaka/Epstein/tree/main/docs/occu.md">Occu</a>, <a href="https://github.com/Archibaka/Epstein/tree/main/docs/conv.md">conv</a>, <a href="https://github.com/Archibaka/Epstein/tree/main/docs/ser.md">Ser</a>, <a href="https://github.com/Archibaka/Epstein/tree/main/docs/conv.md">conv</a>
 
 Содержимое папки <a href="https://github.com/Archibaka/Epstein/tree/main/static">static</a> 
 
