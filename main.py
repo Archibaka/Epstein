@@ -5,7 +5,7 @@ from occu import ret
 import threading
 import time
 import requests  # Добавлен импорт для HTTP запросов
-from conv import build_translation_dict
+from conv import AltShift
 
 # Constants
 MODEL_PATH = "./models/Jeffry/qwen3"
@@ -80,12 +80,11 @@ def reformulate_query(original_query):
     if not llm:
         return original_query
     
-    TRANSLATION_DICT = build_translation_dict()
     prompt = (
         "Time to reformulate some queies: Rephrase this query for better document retrieval. "
         "Focus on key entities and relationships. If this doeasn't make sense, look at the version with changed keyboard layout"
         "Keep it concise. Return Only the Augmented Prompt and nothing else\n\n"
-        f"Original: {original_query}, changed layout: {str.translate(original_query, TRANSLATION_DICT)}\n"
+        f"Original: {original_query}, changed layout: {AltShift(original_query)}\n"
         "Rephrased:"
     )
     
@@ -100,6 +99,7 @@ def reformulate_query(original_query):
 def retrieve_context(query):
     """Retrieve relevant context from vector database"""
     try:
+        st = time.time()
         results = ret(query)['Retriever']
         if not results or 'documents' not in results:
             return 'No relevant context found'
@@ -110,6 +110,8 @@ def retrieve_context(query):
             context_str += f"Source: {doc.meta.get('source', 'Unknown')}\n"
             context_str += f"Page: {doc.meta.get('page', 'N/A')}\n"
             context_str += f"Content: {doc.content[:500]}...\n"
+        ed = time.time()
+        print(f"Context retrieved in {ed-st} seconds")
         return context_str
     except Exception as e:
         return f"Error retrieving context: {str(e)}"
@@ -190,6 +192,7 @@ def stream_response():
     # 1. Получаем контекст через RAG (если включен)
     context_str = ""
     if session.get('rag_enabled', RAG_ENABLED):
+        print("RAG ENABLED")
         reformulated_query = reformulate_query(user_query)
         print("Reformulated query:", reformulated_query)
         if (reformulated_query == ""):
@@ -199,12 +202,14 @@ def stream_response():
         # session['chats'].append(("C", context_str))
         # session.modified = True
         add_message_to_chat("C", context_str)
+    else:
+        print("RAG DISABLED")
     
     # 2. Формируем промпт с контекстом
     augmented_prompt = user_query  # По умолчанию
     if context_str and is_context_relevant(context_str):
         augmented_prompt = (f"The query is already rephrased. You are an assisatant now." 
-                            "Based on the following context:\n{context_str}\n\nAnswer this question: {user_query} DO NOT REPHRASE, ANSWER THE QUERY")
+                            f"Based on the following context:\n{context_str}\n\nAnswer this question: {user_query} or {reformulated_query} DO NOT REPHRASE, ANSWER THE QUERY")
     print(augmented_prompt)
     def generate():
         try:
