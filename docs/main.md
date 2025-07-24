@@ -10,9 +10,16 @@
 ```
 pip install flask 
 ```
-Модули Lilim, Occu, conv, Ser
+Модули  <a href="https://github.com/Archibaka/Epstein/tree/main/docs/lilim.md">Lilim</a>, Occu, conv, Ser
+
+Содержимое папки static 
 
 Требования
 Запущенный Ser.py (localhost:8000)
 
 Проиндексированные PDF (через Occu.py)
+
+Запуск через
+```
+python main.py 
+```
