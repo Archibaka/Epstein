@@ -86,13 +86,13 @@
 
 Install all dependencies from file
 * pip
-  ```
+  ```bash
   pip install -r installPls.txt
   ```
 
 ### Installation
   Clone the repository by
-  ```
+  ```bash
   git clone https://github.com/Archibaka/Epstein.git
   ```
   Create the folder models, inside of it create two folders:
@@ -101,14 +101,14 @@ Install all dependencies from file
   Jeffry for Qwen3
   
   for <a href=https://huggingface.co/ai-forever/ru-en-RoSBERTa/tree/main> ru-en-RoSBERTa </a>  run
-  ```
+  ```bash
   git lfs install
   git clone https://huggingface.co/ai-forever/ru-en-RoSBERTa /models/embmodel/RoSBERTa
   ```
 
   
   for <a href=https://huggingface.co/Qwen/Qwen3-1.7B>QWEN3 1.7B</a> run
-  ```
+  ```bash
   git clone https://huggingface.co/Qwen/Qwen3-1.7B /models/Jeffry/qwen3
   ```
 
@@ -119,7 +119,7 @@ Install all dependencies from file
 ## Files, functionality and usage <a id="usage"></a>
 
 Every module could be lauched by itself using
-```
+```bash
 python module.py
 ```
 
@@ -127,15 +127,15 @@ python module.py
 Wrapper for LLM (default: <a href=https://huggingface.co/Qwen/Qwen3-1.7B>QWEN3 1.7B</a>, that is accsessible by this path)
   
   Uses <a href="https://huggingface.co/docs/transformers/en/index">huggingface transformers </a> and <a href=https://pytorch.org>torch</a>
-  ```
+  ```python
   path = "./models/Jeffry/qwen3"
   ```
 The initial prompt is stored in variable 
-  ```
+  ```python
   prompthatbitch = "Вы — помощник для работы с базой данных..."
   ```
 The model should be loaded using
-  ```
+  ```python
   llm = Lilim(path)
   llm.load_model()
   ```  
@@ -143,13 +143,13 @@ The two ways of generating are avalible, sharing the arguments.
 
 Output string
   
-  ```
+  ```python
   generate(self, user_input, max_new_tokens=1024, temperature=0.7, top_p=0.95, 
                  top_k=20, sample=True, min_p=0, 
                  exponential_decay_length_penalty=None, think=False, cache_implementation=None)
   ```
 And Token Generator
-  ```
+  ```python
   generateSt(self, user_input, max_new_tokens=1024, temperature=0.7, top_p=0.95, 
                  top_k=20, sample=True, min_p=0, 
                  exponential_decay_length_penalty=None, think=False, cache_implementation=None)
@@ -160,22 +160,22 @@ generate() is implemented via generateSt() call due to the author's limited IQ
 The parameters passed correspond with the ones described in <a href = "https://huggingface.co/docs/transformers/en/main_classes/text_generation"> This article </a>
 
 The context window could be manipulated by these class methods
-```
+```python
 add_to_history(self, role, content)
 ```
-```
+```python
 clear_history(self)
 ```
 
 If launched by itself, runs an example:
-```
+```python
 llm = Lilim(path)
     query = "ye;ty ujcn yf hfphf,jnre gj"
     TRANSLATION_DICT = build_translation_dict()
     prompt = (
         "Time to reformulate some queies: Rephrase this query for better document retrieval. "
         "Focus on key entities and relationships. If this doeasn't make sense,"
-        look at the version with changed keyboard layout"
+        "look at the version with changed keyboard layout"
         "Keep it concise. Return Only the Augmented Prompt and nothing else\n\n"
         f"Original: {query}, changed layout: {str.translate(query, TRANSLATION_DICT)}\n"
         "Rephrased:"
@@ -198,13 +198,13 @@ Module for converting file directory to the vector database and retrieving data 
 Uses <a href="#Lilim">Lilim</a>, <a href="#Ser">Ser.py</a>, <a href=https://github.com/jsvine/pdfplumber> pdfplumber<a/> and <a href="https://haystack.deepset.ai/">haystack</a>
 
 To convert simply run by itself or call
-```
+```python
 ind()
 ```
 That reads data from your list_path directory and converts to the local vector database in chroma_db folder in your project directory
 
 To retrieve data from your database at ./chroma_db call
-```
+```python
 ret(data)
 ```
 
@@ -221,12 +221,12 @@ Locally hosted <a href=https://huggingface.co/ai-forever/ru-en-RoSBERTa/tree/mai
 Uses <a href="https://huggingface.co/sentence-transformers">huggingface sentence transformers </a> and <a href=https://flask.palletsprojects.com/en/stable/>flask</a>
 
 To use simply run by itself
-```
+```bash
 python ser.py
 ``` 
 If you wish, you can change your host and port
 <a id="Show him its place"></a>
-```
+```python
 app.run(host=urhost, port=urport)
 ```
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -238,20 +238,20 @@ Uses <a href=https://github.com/ocrmypdf/OCRmyPDF>ocrmypdf</a>
 
 put your files in 
 
-```
+```python
 outpath = "./files/list"
 ```
 
 and get your ocred files from
 
-```
+```python
 inpath = "./files/GOOD"
 ```
 
 or change the variables
 
 To use simply run by itself
-```
+```bash
 python toNormal.py
 ``` 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -262,11 +262,11 @@ Chatbot window that ties everything.
 Uses all of the above
 
 Requires running
-```
+```bash
 python ser.py
 ``` 
 at
-```
+```python
 ip = "localhost"
 port = "8000"
 ```
