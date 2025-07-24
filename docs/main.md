@@ -7,7 +7,7 @@
 - Локальный веб-интерфейс
 
 ## Зависимости
-```
+```bash
 pip install flask 
 ```
 Модули  <a href="https://github.com/Archibaka/Epstein/tree/main/docs/lilim.md">Lilim</a>, <a href="https://github.com/Archibaka/Epstein/tree/main/docs/occu.md">Occu</a>, <a href="https://github.com/Archibaka/Epstein/tree/main/docs/conv.md">conv</a>, <a href="https://github.com/Archibaka/Epstein/tree/main/docs/ser.md">Ser</a>, <a href="https://github.com/Archibaka/Epstein/tree/main/docs/conv.md">conv</a>
@@ -20,6 +20,6 @@ pip install flask
 Проиндексированные PDF (через Occu.py)
 
 ## Запуск
-```
+```bash
 python main.py 
 ```
