@@ -8,3 +8,6 @@ def build_translation_dict():
         if latin.islower():
             result[ord(latin.upper())] = cyrillic.upper()
     return result
+
+def AltShift(query):
+    return str.translate(query, build_translation_dict())
