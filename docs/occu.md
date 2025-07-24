@@ -26,6 +26,7 @@ Ser.py, запущенный на
 ```python
 hostip = "http://localhost:8080""
 ```
+<strong>Если в <a href="https://github.com/Archibaka/Epstein/tree/main/docs/Ser.md">Ser.py</a> указан другой, то поменять</strong> 
 
 Загруженная в 
 ```python
