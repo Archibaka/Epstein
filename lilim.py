@@ -41,7 +41,8 @@ class Lilim:
         self.model = None
         self.tokenizer = None
         self.conversation_history = []
-        if ass:
+        self.ass = ass
+        if self.ass:
             self.conversation_history.append({"role": "system", "content": prompthatbitch})
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
         
@@ -74,7 +75,10 @@ class Lilim:
         
     def clear_history(self):
         """Clear conversation history"""
-        self.conversation_history = [{"role": "system", "content": prompthatbitch}]
+        if self.ass:
+            self.conversation_history = [{"role": "system", "content": prompthatbitch}]
+        else:
+            self.conversation_history = []
 
     def generate(self, user_input, max_new_tokens=1024, temperature=0.7, top_p=0.95, 
                  top_k=20, sample=True, min_p=0, exponential_decay_length_penalty=None, think=False, cache_implementation=None):
