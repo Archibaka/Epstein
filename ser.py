@@ -24,4 +24,4 @@ def embed():
     return jsonify(embeddings.tolist())  # Convert tensor to list
 
 if __name__ == '__main__':
-    app.run(host='10.0.0.37', port=8080)
+    app.run(host='localhost', port=8080)
