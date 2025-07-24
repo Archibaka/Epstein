@@ -12,7 +12,7 @@
   <p align="center">
     100% Local RAG system handling pdf files
     <br />
-    <a href="https://github.com/Archibaka/Epstein"><strong>Explore the docs</strong></a>
+    <a href="https://github.com/Archibaka/Epstein/tree/main/docs"><strong>Explore the docs</strong></a>
     <br />
     <a href="https://github.com/Archibaka/Epstein/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
     &middot;
