@@ -16,7 +16,7 @@ import pdfplumber
 
 # embmodel_path = "/home/rerephil/Desktop/Manhattan/Epstein/models/embodel/RoSBERTa"
 list_path = "./files/GOOD"
-hostip = "http://10.0.0.37:8080"
+hostip = "http://localhost:8080"
 
 #Transfer text from OCRED pdfs to the document storage native to the database
 def extract_text_and_stuff(list_path, checkpoint):
