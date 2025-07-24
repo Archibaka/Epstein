@@ -4,7 +4,7 @@ from transformers import TextIteratorStreamer
 import threading
 import torch
 import time
-from conv import build_translation_dict
+from conv import AltShift
 
 path = "./models/Jeffry/qwen3"
 
@@ -194,9 +194,10 @@ class Lilim:
                 # Start generation in a separate thread
             thread = threading.Thread(target=self.model.generate, kwargs=generation_kwargs)
             thread.start()
-                
+            tokens = 0    
                 # Return a generator that yields tokens
             for new_token in streamer:
+                tokens += 1
                 response += " " + new_token
                 yield new_token
                 # Ensure the generation thread completes
@@ -205,6 +206,7 @@ class Lilim:
             self.add_to_history("assistant", response)
             # Add assistant response to history
             self.add_to_history("assistant", response)
+            print(f"{tokens} tokens in")
             return response
         except Exception as e:
             # Clear history to prevent corruption
@@ -218,19 +220,24 @@ class Lilim:
 if __name__ == "__main__":
     llm = Lilim(path)
     query = "ye;ty ujcn yf hfphf,jnre gj"
-    TRANSLATION_DICT = build_translation_dict()
+
     prompt = (
         "Time to reformulate some queies: Rephrase this query for better document retrieval. "
         "Focus on key entities and relationships. If this doeasn't make sense, look at the version with changed keyboard layout"
         "Keep it concise. Return Only the Augmented Prompt and nothing else\n\n"
-        f"Original: {query}, changed layout: {str.translate(query, TRANSLATION_DICT)}\n"
+        f"Original: {query}, changed layout: {AltShift(query)}\n"
         "Rephrased:"
     )
     llm.load_model()
+    st = time.time()
     requery = llm.generate(
             prompt, 
             think=True,
-            exponential_decay_length_penalty=(1000, 1.1),
+            #exponential_decay_length_penalty=(1000, 1.1),
             sample=False
         )
+    ed = time.time()
+    delt = ed-st
+    print(f"{delt} seconds")
+    print(prompt)
     print(requery)
